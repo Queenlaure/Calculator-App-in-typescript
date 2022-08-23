@@ -1,6 +1,6 @@
 import React from "react";
 
-
+//Defining an interface for the structure of the delete button
 export interface Btn {
     remove: string;
     handleDelete?: () => void;

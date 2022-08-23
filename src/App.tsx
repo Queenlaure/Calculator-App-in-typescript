@@ -16,6 +16,7 @@ function App() {
   );
   const dispatch = useDispatch();
 
+    //Functions for the different operations(activities)
   const handleInput = (digit: string) => {
     dispatch(addDigit(digit));
     console.log(presentState);
@@ -37,6 +38,7 @@ function App() {
     <div className="container">
       <div className="container-screen">{presentState}</div>
 
+      {/* Defining the different buttons and passing their actions as props */}
       <ClearScreenButton clear="C" handleClear={handleClear} />
       <ArithmeticButton operator="()" />
       <ArithmeticButton operator="%" handleInput={handleInput} />

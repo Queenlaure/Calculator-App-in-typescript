@@ -1,6 +1,6 @@
 import {bindActionCreators, createSlice, PayloadAction} from '@reduxjs/toolkit'
 
-
+// Interface which contains all the states and their types. the states here are the different conditions(situations) which could be handled
 interface InputState{
     presentState:string;
     pastState: string;
@@ -8,6 +8,7 @@ interface InputState{
     result:string;
 }
 
+// Defining the initialstate with the structure from the InputState interface
 const initialState:InputState = {
     presentState:'',
     pastState: '',
@@ -15,16 +16,22 @@ const initialState:InputState = {
     result:''        
 }
 
+//Created a slice using createSlice package which was imported above
 export const inputSlice = createSlice ({
     name: 'input',
     initialState,
+    //Defining the different reducers which are all the functionalities involved.
     reducers: {
+
+        //For adding what is on the clickable button
         addDigit: (state, action:PayloadAction<string> )=>{
             return {
                 ...state,
                 presentState: state.presentState + action.payload
             }
         },
+
+        //For evaluating a math operation
         calculation: (state) => {
             return {
                 ...state,
@@ -32,6 +39,8 @@ export const inputSlice = createSlice ({
             }
 
         },
+
+        // For clearing the display screen
         empty: (state) => {
             return {
                 ...state,
@@ -39,12 +48,16 @@ export const inputSlice = createSlice ({
             }
 
         },
+
+        // For deleting a digit
         strike: (state) => {
             return {
                 ...state,
                 presentState: state.presentState.slice(0, -1)
             }
         },
+
+        //For the bracket
         bracketOperation: (state, action:PayloadAction<string>) => {
             if(state.pastState.includes("(")){
                 return {
@@ -60,6 +73,7 @@ export const inputSlice = createSlice ({
         }
     }
 })
+
 export const { addDigit ,calculation, empty, strike}  = inputSlice.actions
 
 export default inputSlice.reducer;

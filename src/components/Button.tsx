@@ -1,6 +1,6 @@
 import React from "react";
 
-
+//Defining an interface that will take the structure of all the buttons with digits
 export interface Btn {
     digit: string;
     handleInput?: (digit: string) => void;
