@@ -1,0 +1,32 @@
+.container {
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(4, 5em);
+  grid-template-rows: minmax(7em ,6em) repeat(5, 6em);
+  justify-content: center;
+  margin-top: 20px;
+  grid-gap:10px
+  
+ 
+}
+.container-screen {
+  grid-column:span 4;
+  background-color:black;
+  border-radius:5%;
+  color: white;
+  font-size: 3em;
+
+}
+
+.container > button {
+  color: rgb(196, 190, 190);
+  background-color: black;
+  font-size: 2em;
+  border-radius: 50%;
+  transform-origin: 2cm;
+}
+.container > button:active {
+/* box-shadow: 0 5px #666; */
+transform: translateY(4px);
+
+}
